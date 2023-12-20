@@ -2,7 +2,7 @@
 - name: Include package list
   include_vars: vars/yay.yml
   tags:
-    - yay
+    
 
 - block:
     - name: Install yay
