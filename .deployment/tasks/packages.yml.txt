@@ -1,0 +1,21 @@
+---
+- name: Include package list
+  include_vars: vars/yay.yml
+  tags:
+    - yay
+
+- block:
+    - name: Install yay
+      aur:
+        name: yay
+
+    - name: Manage packages
+      aur:
+        use: yay
+        name: "{{ item.0 }}"
+        state: "{{ item.value.state | default('latest') }}"
+      loop: "{{ yay|dictsort }}"
+
+  when: ansible_os_family == "Archlinux"
+  tags:
+    - yay
