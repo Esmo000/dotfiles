@@ -4,10 +4,7 @@
   tags:
     
 
-- block:
-    - name: Install yay
-      aur:
-        name: yay
+
 
     - name: Manage packages
       aur:
